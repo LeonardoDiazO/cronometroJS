@@ -53,3 +53,39 @@ const calculateTime = runningTime =>{
     
     return `${display_minutes}:${display_seconds}`
 }
+
+const changeColor = () => {
+    const colorPicker = document.getElementById('colorPicker').value;
+
+    let backgroundColor;
+    let circleColor;
+
+    switch (colorPicker) {
+        case 'lightblue':
+            backgroundColor = 'lightblue';
+            circleColor = '#ffffff';
+            break;
+        case 'lightpink':
+            backgroundColor = 'lightpink';
+            circleColor = '#ffffff';
+            break;
+        case 'lightgreen':
+            backgroundColor = 'lightgreen';
+            circleColor = '#ffffff';
+            break;
+        case 'lightyellow':
+            backgroundColor = 'lightyellow';
+            circleColor = '#000000';
+            break;
+        case 'lightcoral':
+            backgroundColor = 'lightcoral';
+            circleColor = '#ffffff';
+            break;
+        default:
+            backgroundColor = 'black';
+            circleColor = '#ffffff';
+    }
+
+    document.documentElement.style.setProperty('--background-color', backgroundColor);
+    document.documentElement.style.setProperty('--circle-color', circleColor);
+}
