@@ -1,45 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
+    <!-- Metaetiquetas SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronometro</title>
+    <meta name="description" content="Utiliza este cronómetro online gratuito para controlar el tiempo con un temporizador simple y fácil de usar. Incluye opciones de personalización de colores pastel.">
+    <meta name="keywords" content="cronómetro, temporizador, cronómetro online, cuenta regresiva, personalización de colores, colores pastel">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Leonardo Diaz">
+    <link rel="canonical" href="https://tu-dominio-en-netlify.netlify.app/">
+    
+    <!-- Etiqueta de verificación de Google Search Console -->
+    <meta name="google-site-verification" content="codigo-de-verificacion-proporcionado-por-google">
+    
+    <!-- Etiquetas Open Graph para redes sociales -->
+    <meta property="og:title" content="Cronómetro Online - Temporizador y Cuenta Regresiva">
+    <meta property="og:description" content="Cronómetro fácil de usar con opción de colores pastel.">
+    <meta property="og:url" content="https://tu-dominio-en-netlify.netlify.app/">
+    <meta property="og:type" content="website">
+
+    <title>Cronómetro Online - Temporizador</title>
+
+    <!-- Fuente de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Código de Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=TU-ID-DE-ANALYTICS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'TU-ID-DE-ANALYTICS');
+    </script>
+
+    <!-- Script del cronómetro -->
     <script src="script.js" defer></script>
 </head>
-
 <body>
+    <header>
+        <!-- Selector de colores pastel -->
+        <select id="color-selector" class="color-selector">
+            <option value="#000000">Negro (Predeterminado)</option>
+            <option value="#FFC1CC">Rosa Pastel</option>
+            <option value="#B0E57C">Verde Pastel</option>
+            <option value="#FFD580">Amarillo Pastel</option>
+            <option value="#A0D1FF">Azul Pastel</option>
+        </select>
+    </header>
+
     <main>
-        <section>
-            <div class="color-selector">
-                <select id="colorPicker" onchange="changeColor()">
-                    <option value="black" selected>Negro (Predeterminado)</option>
-                    <option value="lightblue">Azul Pastel</option>
-                    <option value="lightpink">Rosa Pastel</option>
-                    <option value="lightgreen">Verde Pastel</option>
-                    <option value="lightyellow">Amarillo Pastel</option>
-                    <option value="lightcoral">Coral Pastel</option>
-                </select>
+        <div class="circle">
+            <div id="stopwacth" class="stopwacth">00:00</div>
+            <div class="buttons">
+                <div class="stop" onclick="stop()"></div>
+                <div id="play-pause" class="paused" onclick="playPause()"></div>
             </div>
-        </section>
-        <section>
-            <div class="circle">
-                <div id="stopwacth" class="stopwacth">00:00</div>
-                <div class="buttons">
-                    <div class="stop" onclick="stop()"></div>
-                    <div id="play-pause" class="paused" onclick="playPause()"></div>
-                </div>
-            </div>
-            <div id="seconds-sphere" class="seconds-sphere"></div>
-        </section>
+        </div>
+        <div id="seconds-sphere" class="seconds-sphere"></div>
     </main>
 
-
+    <script>
+        // Script para cambiar el color del cronómetro según el selector
+        const colorSelector = document.getElementById('color-selector');
+        colorSelector.addEventListener('change', (event) => {
+            document.body.style.backgroundColor = event.target.value;
+        });
+    </script>
 </body>
-
 </html>
