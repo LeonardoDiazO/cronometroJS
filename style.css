@@ -1,21 +1,40 @@
-main {
+/* General */
+body {
+    background-color: #000000; /* Negro por defecto */
+    color: white;
     font-family: 'Roboto Mono', monospace;
-    position: relative;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
+/* Estilo para el selector de colores */
+.color-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 5px;
+}
+
+/* Cronómetro */
 .circle {
     border-radius: 50%;
     width: 120px;
     height: 120px;
     border: 1px solid #fff;
-    color: var(--circle-color, #fff);
-    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: background-color 0.3s ease;
+    position: relative;
 }
 
 .circle::before {
@@ -26,22 +45,20 @@ main {
     width: 160px;
     height: 160px;
     left: calc(50% - 80px);
-    top: calc(55% - 80px); 
-    background-color: var(--background-color, black);
-    transition: background-color 0.3s ease;
+    top: calc(50% - 80px);
+    background-color: black;
 }
 
 .seconds-sphere {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--circle-color, #fff);
+    background-color: #fff;
     position: absolute;
     left: calc(50% - 10px);
-    top: calc(55% - 10px);
+    top: calc(50% - 10px);
     animation: rotacion 60s linear infinite;
     animation-play-state: paused;
-    transition: background-color 0.3s ease;
 }
 
 @keyframes rotacion {
@@ -54,7 +71,7 @@ main {
     display: inline-flex;
 }
 
-.paused{
+.paused {
     height: 10px;
     border-width: 5px 0 5px 10px;
     cursor: pointer;
@@ -64,13 +81,11 @@ main {
     transition: 100ms all ease;
     will-change: border-width;
     border-style: solid;
-
 }
 
 .running {
     border-style: double;
     border-width: 0 0 0 10px;
-
 }
 
 .stop {
@@ -79,10 +94,3 @@ main {
     width: 10px;
     cursor: pointer;
 }
-
-select {
-    padding: 5px;
-    border-radius: 5px;
-    font-family: 'Roboto Mono', monospace;
-}
-
