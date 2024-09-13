@@ -38,15 +38,28 @@ const start = () => {
     stopwatchInterval = setInterval(() => {
         runningTime = Date.now() - startTime;
         stopwatch.textContent = calculateTime(runningTime);
-    }, 1000);
-};
+    }, 100); // Actualiza cada 100 ms
+}
 
-const calculateTime = (runningTime) => {
+const calculateTime = runningTime => {
     const total_seconds = Math.floor(runningTime / 1000);
     const total_minutes = Math.floor(total_seconds / 60);
+    const total_hours = Math.floor(total_minutes / 60);
 
     const display_seconds = (total_seconds % 60).toString().padStart(2, "0");
-    const display_minutes = total_minutes.toString().padStart(2, "0");
+    const display_minutes = (total_minutes % 60).toString().padStart(2, "0");
+    const display_hours = total_hours.toString().padStart(2, "0");
 
-    return `${display_minutes}:${display_seconds}`;
-};
+    return total_hours > 0 
+        ? `${display_hours}:${display_minutes}:${display_seconds}` 
+        : `${display_minutes}:${display_seconds}:${Math.floor((runningTime % 1000) / 10).toString().padStart(2, "0")}`;
+}
+
+
+// Atajos de teclado
+document.addEventListener('keydown', (event) => {
+    const key = event.key.toLowerCase();
+    if (key === 's') playPause(); // 'S' para iniciar/pausar
+    if (key === 'r') stop();      // 'R' para resetear
+    if (key === 'd') document.body.classList.toggle('dark-mode'); // 'D' para modo oscuro
+});

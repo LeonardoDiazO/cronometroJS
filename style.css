@@ -94,3 +94,35 @@ body {
     width: 10px;
     cursor: pointer;
 }
+
+/* Estilo para los Atajos de Teclado */
+.keyboardShortcuts {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para mejor visibilidad */
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+/* Ajuste del título de la sección */
+.keyboardShortcuts h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Ajuste de la lista de atajos */
+.keyboardShortcuts ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.keyboardShortcuts li {
+    margin: 5px 0;
+}
+
