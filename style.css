@@ -6,22 +6,53 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: white;
+    position: fixed; /* El navbar se queda fijo en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.navbar h1 {
+    font-size: 18px;
+    margin: 0;
 }
 
 /* Estilo para el selector de colores */
 .color-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     background-color: white;
     border: 1px solid #ccc;
     padding: 5px;
     font-family: 'Roboto Mono', monospace;
     border-radius: 5px;
+}
+
+/* Atajos de Teclado */
+.keyboardShortcuts {
+    margin-top: 5%; /* Añadir espacio debajo del navbar */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    border-radius: 5px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    text-align: center;
 }
 
 /* Cronómetro */
@@ -61,6 +92,7 @@ body {
     animation-play-state: paused;
 }*/
 
+/* Rotación de la esfera */
 @keyframes rotacion {
     from { transform: rotate(-90deg) translateX(60px); }
     to { transform: rotate(270deg) translateX(60px); }
@@ -95,34 +127,52 @@ body {
     cursor: pointer;
 }
 
-/* Estilo para los Atajos de Teclado */
-.keyboardShortcuts {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para mejor visibilidad */
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
+/* Responsividad */
+@media (max-width: 768px) {
+    .circle {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .circle::before {
+        width: 60vw;
+        height: 60vw;
+        left: calc(50% - 30vw);
+        top: calc(50% - 30vw);
+    }
+
+    .seconds-sphere {
+        width: 8vw;
+        height: 8vw;
+        left: calc(50% - 4vw);
+        top: calc(50% - 4vw);
+    }
+
+    .navbar h1 {
+        font-size: 14px;
+    }
+
+    .keyboardShortcuts {
+        font-size: 12px;
+    }
 }
 
-/* Ajuste del título de la sección */
-.keyboardShortcuts h2 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-}
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px 10px;
+    }
 
-/* Ajuste de la lista de atajos */
-.keyboardShortcuts ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 5px;
-}
+    .navbar h1 {
+        font-size: 12px;
+    }
 
-.keyboardShortcuts li {
-    margin: 5px 0;
-}
+    .color-selector {
+        font-size: 12px;
+        padding: 3px;
+    }
 
+    .keyboardShortcuts {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
