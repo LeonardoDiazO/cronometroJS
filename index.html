@@ -35,7 +35,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'TU-ID-DE-ANALYTICS');
     </script>
 
@@ -44,6 +43,20 @@
 </head>
 <body>
     
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>Cronómetro Online</h1>
+        <!-- Selector de colores pastel dentro del navbar -->
+        <select id="color-selector" class="color-selector">
+            <option value="#000000">Negro (Predeterminado)</option>
+            <option value="#FFC1CC">Rosa Pastel</option>
+            <option value="#B0E57C">Verde Pastel</option>
+            <option value="#FFD580">Amarillo Pastel</option>
+            <option value="#A0D1FF">Azul Pastel</option>
+        </select>
+    </nav>
+
+    <!-- Sección de atajos de teclado, ahora debajo del navbar -->
     <section id="keyboardShortcuts" class="keyboardShortcuts">
         <h2>Atajos de Teclado</h2>
         <ul>
@@ -53,17 +66,6 @@
         </ul>
     </section>
     
-    <header>
-        <!-- Selector de colores pastel -->
-        <select id="color-selector" class="color-selector">
-            <option value="#000000">Negro (Predeterminado)</option>
-            <option value="#FFC1CC">Rosa Pastel</option>
-            <option value="#B0E57C">Verde Pastel</option>
-            <option value="#FFD580">Amarillo Pastel</option>
-            <option value="#A0D1FF">Azul Pastel</option>
-        </select>
-    </header>
-
     <main>
         <div class="circle">
             <div id="stopwacth" class="stopwacth">00:00</div>
